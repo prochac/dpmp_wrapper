@@ -1,0 +1,38 @@
+{% extends 'template.jinja2' %}
+{% block body %}
+    {% include 'nav_header.jinja2' %}
+    <div class="row">
+        <div class="card">
+            <div class="section">
+                <h3>Jízdenka za&nbsp;25&nbsp;Kč na&nbsp;45&nbsp;min</h3>
+                <p>Jízdenka za Kč 25,– vč. DPH přestupní na 45 / 60 min.</p>
+                <p>Na telefoní číslo <strong>90206</strong> zašlete zprávu s textem:
+                    <strong>DPMP</strong></p>
+                <p>Přestupní jízdenka za Kč 25,– platí v pracovní dny po dobu 45 minut. V SO,NE, státní svátky platí
+                    přestupní jízdenka po dobu 60 minut.</p>
+                <a type="button" class="primary" href="sms:90206?body=DPMP">Objednat</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="section">
+                <h3>Jízdenka za&nbsp;50&nbsp;Kč na&nbsp;24&nbsp;hod</h3>
+                <p>Jízdenka za Kč 50,– vč. DPH, celodenní na 24 hod. *</p>
+                <p>Na telefoní číslo <strong>90206</strong> zašlete zprávu s textem:
+                    <strong>DPMP24</strong></p>
+                <p>Přestupní jízdenka za Kč 50,– platí v pracovní dny, SO, NE a státní svátky po dobu 24 hodin.</p>
+                <a type="button" class="primary" href="sms:90206?body=DPMP24">Objednat</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="section">
+                <h3>Duplikát SMS jízdenky</h3>
+                <p>V případě smazání jízdenky/jízdenek v době její platnosti je možné získat její duplikát/duplikáty.
+                    Tato služba je zpoplatněna částkou Kč 3,– vč. DPH.</p>
+                <p>Na telefoní číslo <strong>9000603</strong> zašlete zprávu s
+                    textem: <strong>DPMP</strong></p>
+                <a type="button" class="primary" href="sms:9000603?body=DPMP">Objednat</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

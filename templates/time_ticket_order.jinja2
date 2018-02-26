@@ -1,0 +1,99 @@
+{% extends 'template.jinja2' %}
+{% block body %}
+    {% include 'nav_header.jinja2' %}
+    <form action="{{ url_for('time_ticket_order') }}" method="post">
+        <div class="input-group vertical">
+            <label for="tariff">Typ předplatné časové jízdenky:</label>
+            <select name="tariff" id="tariff" onchange="refreshDateTo()">
+                <option value="509000009" {{ "selected" if last_tariff == '509000009' }}>Občanské 7-denní</option>
+                <option value="509000010" {{ "selected" if last_tariff == '509000010' }}>Občanské 14-denní</option>
+                <option value="509000011" {{ "selected" if last_tariff == '509000011' }}>Občanské 30-denní</option>
+                <option value="509000012" {{ "selected" if last_tariff == '509000012' }}>Občanské 90-denní</option>
+                <option value="509000132" {{ "selected" if last_tariff == '509000132' }}>Občanské 180-denní</option>
+                <option value="509000014" {{ "selected" if last_tariff == '509000014' }}>Občanské 365-denní</option>
+            </select>
+        </div>
+        <div class="input-group vertical">
+            <label for="zone">Tarifní zóna:</label>
+            <select name="zone" id="zone">
+                <option value="15;1;17" {{ "selected" if last_zone == '15;1;17' }}>zóna I</option>
+                <option value="16;2;18"  {{ "selected" if last_zone == '16;2;18' }}>zóna I + II</option>
+            </select>
+        </div>
+        <div class="input-group vertical">
+            <label for="date_from">Od:</label>
+            <input class="my-date-input" type="date" name="date_from" id="date_from" onchange="refreshDateTo()"
+                   min={{ tomorrow }} value={{ date_from }}>
+        </div>
+        <div class="input-group vertical">
+            <label for="date_to">Do:</label>
+            <input class="my-date-input" type="date" name="date_to" id="date_to" disabled value={{ date_to }}>
+        </div>
+        <div class="input-group vertical">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" value="{{ last_email }}">
+        </div>
+        <div class="input-group vertical">
+            <input type="checkbox" id="email_reminder" name="email_reminder"
+                   tabindex="0" {{ "checked" if last_check_remind }}>
+            <label for="email_reminder">Chci být upozorněný před koncem platnosti časové jízdenky</label>
+        </div>
+        <div class="input-group vertical">
+            <label for="email_reminder_days">Počet dnů před koncem platnosti:</label>
+            <input type="number" id="email_reminder_days" name="email_reminder_days"
+                   value="{{ last_days_remind if last_days_remind else 3 }}">
+        </div>
+        <div class="input-group vertical">
+            <input type="checkbox" id="check_agree" name="check_agree" tabindex="0" {{ "checked" if last_agreed }}>
+            <label for="check_agree">Souhlasím s <a
+                    href="https://ifc.emlines.com/dpmp/BusinessConditions.aspx/937">obchodními podmínkami DPMP
+                a.s.</a></label>
+        </div>
+        <button class="primary" type="submit">Pokračovat</button>
+    </form>
+    <script>
+        Date.prototype.yyyymmdd = function () {
+            var mm = this.getMonth() + 1; // getMonth() is zero-based
+            var dd = this.getDate();
+
+            return [this.getFullYear(),
+                (mm > 9 ? '' : '0') + mm,
+                (dd > 9 ? '' : '0') + dd
+            ].join('-');
+        };
+
+        function refreshDateTo() {
+            var date_from = document.getElementById('date_from');
+            var date_to = document.getElementById('date_to');
+            var tariff = document.getElementById('tariff');
+            var sel_tariff = tariff.options[tariff.selectedIndex].value;
+            var days = 0;
+            switch (sel_tariff) {
+                case '509000009':
+                    days = 7;
+                    break;
+                case '509000010':
+                    days = 14;
+                    break;
+                case '509000011':
+                    days = 30;
+                    break;
+                case '509000012':
+                    days = 90;
+                    break;
+                case '509000132':
+                    days = 180;
+                    break;
+                case '509000014':
+                    days = 365;
+                    break;
+            }
+            days -= 1;
+            var d_date_from = new Date(date_from.value);
+            d_date_from.setDate(d_date_from.getDate() + days);
+            date_to.value = d_date_from.yyyymmdd();
+        }
+
+        refreshDateTo()
+    </script>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'template.jinja2' %}
+{% block body %}
+    {% include 'nav_header.jinja2' %}
+    <form action="{{ url_for('fill_wallet') }}" method="post">
+        <div class="input-group vertical tooltip bottom"
+             aria-label="Zůstatek na&nbsp;kartě bude navýšen až&nbsp;za&nbsp;3&nbsp;hodiny">
+            <label for="amount">Zadejte sumu minimálně 1 Kč:</label>
+            <input type="number" name="amount" id="amount" min="1" value="{{ last_amount }}">
+        </div>
+        <div class="input-group vertical">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" value="{{ last_email }}">
+        </div>
+        <div class="input-group vertical">
+            <input type="checkbox" id="check_agree" name="check_agree" tabindex="0" {{ "checked" if last_agreed }}>
+            <label for="check_agree">Souhlasím s <a
+                    href="https://ifc.emlines.com/dpmp/BusinessConditions.aspx/937">obchodními podmínkami DPMP
+                a.s.</a></label>
+        </div>
+        <button class="primary" type="submit">Pokračovat</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,60 @@
+[
+  {
+    "icon": "credit_card",
+    "url": "/login",
+    "text": "Přihlásit",
+    "show": [
+      "unlogged"
+    ]
+  },
+  {
+    "icon": "credit_card",
+    "url": "/card-info",
+    "text": "Informace&nbsp;o&nbsp;kartě",
+    "show": [
+      "logged"
+    ]
+  },
+  {
+    "icon": "account_balance_wallet",
+    "url": "/fill-wallet",
+    "text": "Plnění&nbsp;peněženky",
+    "show": [
+      "logged"
+    ]
+  },
+  {
+    "icon": "event",
+    "url": "/time-ticket-order",
+    "text": "Objednání&nbsp;časové&nbsp;jízdenky",
+    "show": [
+      "logged"
+    ]
+  },
+  {
+    "icon": "message",
+    "url": "/sms-ticket",
+    "text": "SMS&nbsp;Jízdenka",
+    "show": [
+      "unlogged",
+      "logged"
+    ]
+  },
+  {
+    "icon": "exit_to_app",
+    "url": "/logout",
+    "text": "Odhlásit",
+    "show": [
+      "logged"
+    ]
+  },
+  {
+    "icon": "info",
+    "url": "/about",
+    "text": "O&nbsp;aplikaci",
+    "show": [
+      "unlogged",
+      "logged"
+    ]
+  }
+]

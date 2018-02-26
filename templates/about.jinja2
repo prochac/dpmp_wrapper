@@ -1,0 +1,14 @@
+{% extends 'template.jinja2' %}
+{% block body %}
+    {% include 'nav_header.jinja2' %}
+    <h3>Toto není oficiální aplikace Dopravního podniku města Pardubic a.s.</h3>
+    <p>Aplikace vznikla jako reakce na neresponzivní stránky Dopravní podnik města Pardubic a.s.</p>
+    <p>Veškerá data jsou získávána z veřejně přístupných webových stránek firem <a href="http://www.dpmp.cz/">Dopravní podnik města Pardubic a.s.</a> a <a href="http://emlines.com/">EMTEST, a.s.</a>, která službu pro Dopravní podnik města Pardubic a.s. provozuje.</p>
+    <p>Autor nemá možnost ověřit správnost dat, pouze zobrazuje dostupná data v přívětivější formě.</p>
+    <p>Autor aplikace z provozu nemá žádný finanční příjem, naopak má s provozem náklady.</p>
+    <p>Aplikace neukládá žádná uživatelská data na server. Všechna data jsou uložena v prohlížeči pomocí <a
+            href="http://flask.pocoo.org/docs/0.12/quickstart/#sessions">sessions</a>.</p>
+    <p>Kompletní kód aplikace je zveřejněn na <a href="https://github.com/prochac/dpmp_wrapper">GitHubu</a> pod licencí
+        BSD.</p>
+    <p>Pokud Vám něco v aplikaci nefunguje, tak mě klidně kontaktujte. Email je uveden v zápatí.</p>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'template.jinja2' %}
+{% block body %}
+    <header class="sticky">
+        <a href="{{ back_url }}" class="button material-icons">arrow_back</a>
+        <a href="#" class="button">{{ page_name }}</a>
+    </header>
+    <form method="post" action="{{ url }}">
+        {% for input_data in info_data %}
+            <div class="input-group vertical">
+                <label>{{ input_data[0] }} </label>
+                <input type="text" disabled value="{{ input_data[1] }}">
+            </div>
+        {% endfor %}
+        {% for input_data in form_data %}
+            <input type="hidden" name="{{ input_data[0] }}" value="{{ input_data[1] }}">
+        {% endfor %}
+        <div class="input-group vertical">
+            <div class="container">
+                <div class="row">
+                    <div class="input-group float">
+                        <a class="secondary" type="button" href="{{ back_url }}">Zrušit</a>
+                        <button class="large primary" type="submit">Potvrdit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script>
+        fbq('track', 'InitiateCheckout');
+    </script>
+{% endblock %}

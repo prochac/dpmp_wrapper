@@ -1,0 +1,41 @@
+{% extends 'template.jinja2' %}
+{% block body %}
+    {% include 'nav_header.jinja2' %}
+    <div class="row">
+        {% for time_ticket in time_tickets %}
+            {% if time_ticket[4] %}
+                <div class="card active-ticket">
+            {% else %}
+                <div class="card">
+            {% endif %}
+        <div class="section">
+            <h3>{{ time_ticket[0] }}</h3>
+            <p>{{ time_ticket[1] }}</p>
+            <p>{{ time_ticket[2] }}</p>
+            <p>{{ time_ticket[3] }}</p>
+        </div>
+        </div>
+        {% endfor %}
+        <table>
+            <tbody>
+            {% for item in card_info_data %}
+                <tr>
+                    <td>
+                        {{ item[0] }}
+                    </td>
+                    <td>
+                        {% if item[2] %}
+                            <mark class="secondary">
+                        {% endif %}
+                        {{ item[1] }}
+
+                        {% if item[2] %}
+                            </mark>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        </div>
+{% endblock %}

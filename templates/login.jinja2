@@ -1,0 +1,20 @@
+{% extends 'template.jinja2' %}
+{% block body %}
+    {% include 'nav_header.jinja2' %}
+    <form action="{{ url_for('login') }}" method="post">
+        <h3>Pardubická karta</h3>
+        <div class="input-group vertical">
+            <label for="card_no">Číslo karty</label>
+            <input type="text" name="card_no" id="card_no" value={{ last_card }}>
+        </div>
+        <div class="input-group vertical">
+            <button class="primary" type="submit">Ukaž</button>
+        </div>
+    </form>
+    <form action="{{ url_for('sms_ticket') }}" method="get">
+        <h3>SMS jízdenka</h3>
+        <div class="input-group vertical">
+            <button class="primary" type="submit">Ukaž</button>
+        </div>
+    </form>
+{% endblock %}

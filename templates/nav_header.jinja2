@@ -1,0 +1,26 @@
+<header class="sticky">
+    <label for="drawer-checkbox" class="button drawer-toggle persistent"></label>
+    <a href="#" class="button">{{ page_name }}</a>
+</header>
+<input type="checkbox" id="drawer-checkbox">
+<div class="drawer persistent my-drawer">
+    <div class="drawer-header">
+        <label for="drawer-checkbox" class="close"> </label>
+        {% if actual_card_no %}
+            <p class="drawer-card-no">
+                <span>Aktuální karta:</span><br>
+                <span>{{ actual_card_no }}</span>
+            </p>
+        {% endif %}
+    </div>
+    <ul class="menu-list">
+        {% for row in menu_rows %}
+            <li class="menu-row {{ 'active' if row.active else '' }}">
+                <a href="{{ row.url }}">
+                    <i class="material-icons md-24 md-dark menu-row-icon">{{ row.icon }}</i>
+                    <span class="menu-row-text">{{ row.text }}</span>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

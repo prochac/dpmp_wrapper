@@ -1,0 +1,27 @@
+{
+  "start_url": "/?utm_source=homescreen",
+  "short_name": "mdpmp.cz",
+  "name": "mdpmp.cz",
+  "display": "standalone",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/static/launcher-icon-1x.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "/static/launcher-icon-2x.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "/static/launcher-icon-4x.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "lang": "cs",
+  "background_color": "#FFFFFF",
+  "description": "Pardubická karta v mobilu"
+}

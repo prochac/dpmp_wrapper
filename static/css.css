@@ -1,0 +1,94 @@
+* {
+    outline: none;
+}
+
+.card.active-ticket {
+    background: #9CCC65;
+    border: .0625rem solid #8BC34A;
+}
+
+.card.active-ticket > .section {
+    border-bottom: .0625rem solid #8BC34A;
+}
+
+.card.active-ticket > .section:last-child {
+    border-bottom: 0
+}
+
+.my-date-input {
+    box-sizing: border-box;
+    color: #212121;
+    border: .0625rem solid #c9c9c9;
+    border-radius: .125rem;
+    margin: .25rem;
+    padding: 0.5rem 0.75rem;
+    min-height: 2.75rem;
+}
+
+.my-drawer {
+    background: rgb(255, 255, 255);
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.drawer-header {
+    background: rgb(245, 245, 245) url('logo.png') no-repeat 24px 24px;
+    background-size: 226px 80px;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    width: 100%;
+    height: 150px;
+}
+
+.drawer-card-no {
+    position: absolute;
+    left: 16px;
+    top: 90px;
+}
+
+.menu-list {
+    background: rgb(255, 255, 255);
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    width: 100%;
+    height: calc(100% - 150px);
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.menu-row:hover {
+    background: rgba(0, 0, 0, 0.26);
+}
+
+.menu-row, .menu-row a {
+    color: rgba(0, 0, 0, 0.87);
+    display: block;
+    position: relative;
+    float: top;
+    height: 48px;
+}
+
+.menu-row.active {
+    background: rgb(224, 224, 224);
+}
+
+.my-icon {
+    margin: 12px 16px 12px 8px;
+    padding: 0 0 0 0;
+}
+
+.menu-row-icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 12px 16px 12px 16px;
+}
+
+.menu-row-text {
+    color: rgba(0, 0, 0, 1);
+    position: absolute;
+    left: 72px;
+    top: 12px;
+    font-size: 17px;
+    list-style-type: none;
+}
